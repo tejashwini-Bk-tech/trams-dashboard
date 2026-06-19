@@ -1,0 +1,161 @@
+/* Navbar Component */
+.navbar {
+  width: 100%;
+  padding: 20px 0;
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+ 
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar-logo {
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.navbar-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 40px;
+}
+
+.navbar-links li {
+  margin: 0;
+}
+
+.navbar-links a {
+  position: relative;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+  opacity: 0.7;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navbar-links a:hover::after,
+.navbar-links a:focus-visible::after,
+.navbar-links a:active::after {
+  transform: scaleX(1);
+}
+
+.navbar-hamburger {
+  flex-shrink: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.navbar-hamburger img {
+  max-height: 30px;
+  width: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+
+  .navbar-links a {
+    font-size: 12px;
+  }
+
+  .navbar-hamburger {
+    display: block;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    display: none;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu.active .navbar-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 15px;
+    gap: 15px;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    display: none;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu.active .navbar-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+}

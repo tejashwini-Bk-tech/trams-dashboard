@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+img {
+  max-width: 100%;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero,
+
+footer {
+  animation: pageReveal 0.8s ease both;
+}
+
+.hero {
+  animation-delay: 0.05s;
+}
+
+.features {
+  animation-delay: 0.15s;
+}
+
+.services {
+  animation-delay: 0.25s;
+}
+
+.testimonials {
+  animation-delay: 0.35s;
+}
+
+footer {
+  animation-delay: 0.45s;
+}
+
+@supports (animation-timeline: view()) {
+  .features,
+  .services,
+  .testimonials,
+  footer {
+    animation-delay: 0s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero,
+  .features,
+  .services,
+  .testimonials,
+  footer {
+    animation: none;
+  }
+}
